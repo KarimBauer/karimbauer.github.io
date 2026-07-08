@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# karimbauer.github.io
 
-## Getting Started
+A small personal portfolio site built with Next.js and Tailwind CSS. The homepage renders an About section, a Tech Stack section, and a fixed left sidebar with profile info and social links.
 
-First, run the development server:
+## Table of contents
+
+- [How it works](#how-it-works)
+- [Development](#development)
+- [Build and preview](#build-and-preview)
+- [Learn more](#learn-more)
+- [Notes](#notes)
+
+## How it works
+
+- `src/app/page.tsx` defines the homepage layout and includes the fixed left sidebar.
+- `src/components/Sidebar.tsx` renders the profile sidebar and external links.
+- `src/components/About.tsx` contains the bio section.
+- `src/components/TechStack.tsx` lists the main technologies.
+- `src/config/links.ts` stores the external URLs and GitHub username for the avatar.
+- `next.config.ts` uses `output: "export"`, so the site can be built as a static export.
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser. The page updates automatically as you edit the source files.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build and preview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build the site for production:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Preview the exported static site on port 8080:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx serve out -p 8080
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Then open `http://localhost:8080` in your browser.
 
-## Deploy on Vercel
+> If you prefer a production-like server instead of the static preview, use `npm run start` after `npm run build`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Learn more
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Next.js App Router](https://nextjs.org/docs/app)
+
+## Notes
+
+This project uses `next/font` to optimize the Geist font automatically.
+
+### Profile image source
+
+The sidebar uses your GitHub avatar automatically by reading the GitHub username from `src/config/links.ts`.
+
+If you want to change it, update the `githubUsername` value in `links.ts`.
+
+For a local image instead, replace the `src` in `src/components/Sidebar.tsx` with a `public/` asset path like `/profile.jpg`.
