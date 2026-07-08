@@ -10,7 +10,7 @@ const tech = [
 
 export default function TechStack() {
     return (
-        <section className="max-w-3xl mx-auto py-20 px-6">
+        <section className="mx-auto max-w-5xl px-6 py-20 pb-28 md:px-8">
             <h2 className="text-3xl font-bold">Tech Stack</h2>
 
             <p className="mt-6 leading-8 text-gray-600">
